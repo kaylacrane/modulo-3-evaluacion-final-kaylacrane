@@ -10,6 +10,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.renderFilteredCharacters = this.renderFilteredCharacters.bind(this);
+
+    this.renderCharacterDetails = this.renderCharacterDetails.bind(this);
     this.state = {
       characterList: [],
     };
@@ -26,6 +28,15 @@ class App extends Component {
     const characterList = this.state.characterList;
     return characterList;
   }
+  renderCharacterDetails(event) {
+    console.log(this.state);
+    const characterID = event.match.params.id;
+    const stateCharacterList = this.state.characterList;
+    const characterInfo = stateCharacterList.find(
+      (character) => character.id === parseInt(characterID)
+    );
+    return <CharacterDetails character={characterInfo} />;
+  }
   render() {
     console.log(this.state);
     return (
@@ -36,7 +47,7 @@ class App extends Component {
             <Route exact path="/">
               <CharacterList characterList={this.renderFilteredCharacters()} />
             </Route>
-            <Route path="/character/:id" component={CharacterDetails} />
+            <Route path="/character/:id" render={this.renderCharacterDetails} />
           </Switch>
         </main>
       </React.Fragment>

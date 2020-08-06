@@ -4,13 +4,17 @@ import CharacterCard from './CharacterCard';
 
 class CharacterList extends Component {
   render() {
-    console.log(this.props);
     const charactersHtml = this.props.characterList.map((character) => {
-      const { name, id } = character;
+      const { name, id, species, image } = character;
       return (
-        <li>
+        <li key={id}>
           <Link to={`/character/${id}`}>
-            <CharacterCard name={name} id={id} />
+            <CharacterCard
+              name={name}
+              id={id}
+              species={species}
+              image={image}
+            />
           </Link>
         </li>
       );

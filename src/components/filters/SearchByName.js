@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 
 class SearchByName extends Component {
   render() {
-    return <div>Search by name</div>;
+    return (
+      <form>
+        <h3>Search characters by name:</h3>
+        <input type="text"></input>
+      </form>
+    );
   }
 }
 
