@@ -5,12 +5,18 @@ class SearchByName extends Component {
     super(props);
     this.searchHandlerChild = this.searchHandlerChild.bind(this);
     this.resetHandlerChild = this.resetHandlerChild.bind(this);
+    this.enterHandler = this.enterHandler.bind(this);
   }
   searchHandlerChild(event) {
     this.props.searchHandler(event);
   }
   resetHandlerChild() {
     this.props.resetHandler();
+  }
+  enterHandler(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+    }
   }
   render() {
     console.log(this.props);
