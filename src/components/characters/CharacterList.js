@@ -4,6 +4,7 @@ import CharacterCard from './CharacterCard';
 
 class CharacterList extends Component {
   render() {
+    console.log(this.props);
     const charactersHtml = this.props.characterList.map((character) => {
       const { name, id, species, image } = character;
       return (

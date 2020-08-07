@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link, Route, Switch } from 'react-router-dom';
 
 class CharacterDetail extends Component {
   render() {
@@ -16,6 +17,7 @@ class CharacterDetail extends Component {
     } = this.props.character;
     return (
       <div className="character-details">
+        <Link to="/main/">Back</Link>
         <img src={image} alt={name} className="character-image" />
         <h2>{name}</h2>
         <div>
@@ -28,7 +30,7 @@ class CharacterDetail extends Component {
         </div>
         <div>
           <span>Origin:</span>
-          <span>{origin}</span>
+          <span>{origin.name}</span>
         </div>
         <div>
           <span>Episodes:</span>

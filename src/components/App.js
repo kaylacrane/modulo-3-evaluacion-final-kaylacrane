@@ -2,16 +2,17 @@ import React, { Component } from 'react';
 import '../stylesheets/App.scss';
 import { Link, Route, Switch } from 'react-router-dom';
 import fetchData from '../services/FetchData';
-import CharacterList from './characters/CharacterList';
-import Header from './Header';
+import Main from './Main';
 import CharacterDetails from './characters/CharacterDetails';
+import Landing from '../components/Landing';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.renderFilteredCharacters = this.renderFilteredCharacters.bind(this);
-
+    this.renderFilteredCharacters = this.renderFilteredCharacters.bind(this);
     this.renderCharacterDetails = this.renderCharacterDetails.bind(this);
+    this.renderMain = this.renderMain.bind(this);
     this.state = {
       characterList: [],
     };
@@ -23,6 +24,9 @@ class App extends Component {
         pagesInfo: data.info,
       });
     });
+  }
+  renderMain() {
+    return <Main characterList={this.state.characterList} />;
   }
   renderFilteredCharacters() {
     const characterList = this.state.characterList;
@@ -41,12 +45,10 @@ class App extends Component {
     console.log(this.state);
     return (
       <React.Fragment>
-        <Header></Header>
         <main>
           <Switch>
-            <Route exact path="/">
-              <CharacterList characterList={this.renderFilteredCharacters()} />
-            </Route>
+            <Route exact path="/" component={Landing} />
+            <Route exact path="/main/" render={this.renderMain} />
             <Route path="/character/:id" render={this.renderCharacterDetails} />
           </Switch>
         </main>
