@@ -12,7 +12,10 @@ class Main extends Component {
     console.log(this.props);
     return (
       <div>
-        <Header />
+        <Header
+          searchHandler={this.props.searchHandler}
+          searchValue={this.props.searchValue}
+        />
         <CharacterList characterList={this.props.characterList} />
         <Footer />
       </div>

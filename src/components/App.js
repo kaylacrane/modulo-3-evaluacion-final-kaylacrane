@@ -13,8 +13,10 @@ class App extends Component {
     this.renderFilteredCharacters = this.renderFilteredCharacters.bind(this);
     this.renderCharacterDetails = this.renderCharacterDetails.bind(this);
     this.renderMain = this.renderMain.bind(this);
+    this.searchHandler = this.searchHandler.bind(this);
     this.state = {
       characterList: [],
+      searchText: '',
     };
   }
   componentDidMount() {
@@ -25,11 +27,30 @@ class App extends Component {
       });
     });
   }
+  searchHandler(event) {
+    console.log(event.currentTarget.value);
+    this.setState({ searchText: event.currentTarget.value });
+  }
   renderMain() {
-    return <Main characterList={this.state.characterList} />;
+    return (
+      <Main
+        characterList={this.renderFilteredCharacters()}
+        searchHandler={this.searchHandler}
+        searchValue={this.state.searchText}
+      />
+    );
   }
   renderFilteredCharacters() {
-    const characterList = this.state.characterList;
+    let characterList = this.state.characterList;
+    if (this.state.searchText !== '') {
+      characterList = characterList.filter((character) =>
+        character.name
+          .toLowerCase()
+          .includes(this.state.searchText.toLowerCase())
+      );
+      return characterList;
+    }
+    console.log(characterList);
     return characterList;
   }
   renderCharacterDetails(event) {
