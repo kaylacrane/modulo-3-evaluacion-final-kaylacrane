@@ -1,20 +1,29 @@
 .footer {
   background-color: transparentize(lime, 0.3);
-  position: relative;
-  top: rem(150);
+  height: fit-content;
+  position: absolute;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: rem(10);
+  width: 100%;
   @include tablet {
-    top: rem(210);
+    // top: rem(215);
   }
   @include desktop {
-    top: rem(210);
+    // top: rem(230);
+    padding: rem(15);
   }
 }
 .copy-block {
+  font-weight: bold;
+  @include desktop {
+    font-size: rem(22);
+  }
 }
 .logo-block img {
   height: rem(25);
+  @include desktop {
+    height: rem(36);
+  }
 }

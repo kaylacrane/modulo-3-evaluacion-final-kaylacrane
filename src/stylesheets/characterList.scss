@@ -1,15 +1,19 @@
 .character-list {
+  background: url('../images/starry-sky.jpg');
+  background-position: fixed center;
   position: relative;
+}
+ul {
+  padding-top: rem(180);
   display: flex;
   align-items: center;
   flex-direction: column;
-  top: rem(150);
+  margin: 0 auto;
+  justify-content: space-evenly;
+  max-width: rem(1200);
   @include tablet {
-    top: rem(210);
-  }
-  @include desktop {
-    top: rem(210);
     flex-direction: row;
     flex-wrap: wrap;
+    padding-top: rem(260);
   }
 }

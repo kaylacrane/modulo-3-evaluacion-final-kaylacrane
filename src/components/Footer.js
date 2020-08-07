@@ -8,6 +8,7 @@ class Footer extends Component {
       <footer className="footer">
         <div className="copy-block">
           <small>
+            <span role="img">🤓</span>
             <a href={githubLink} title="Kayla's GitHub page">
               kayla
             </a>{' '}

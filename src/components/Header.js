@@ -20,7 +20,6 @@ class Header extends Component {
             resetHandler={this.props.resetHandler}
           />
         </header>
-        <div className="header-space"></div>
       </React.Fragment>
     );
   }

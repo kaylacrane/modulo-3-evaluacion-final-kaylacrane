@@ -1,18 +1,22 @@
 .header-space {
-  height: rem(160);
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 8;
-  background: url('../images/starry-sky.jpg');
 }
 .header {
   width: 100%;
-  height: fit-content;
+  height: rem(200);
   position: fixed;
-
   padding: rem(10) 0;
   z-index: 10;
+  background: url('../images/starry-sky.jpg');
+  @include tablet {
+    height: rem(250);
+  }
+  @include desktop {
+    height: rem(260);
+  }
 }
 .header-title {
   align-items: center;
@@ -27,6 +31,6 @@
     width: 50vw;
   }
   @include desktop {
-    width: 20vw;
+    max-width: 24vw;
   }
 }
