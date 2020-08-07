@@ -17,6 +17,7 @@ class App extends Component {
     this.state = {
       characterList: [],
       searchText: '',
+      page: 1,
     };
   }
   componentDidMount() {

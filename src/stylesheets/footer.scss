@@ -1,0 +1,20 @@
+.footer {
+  background-color: transparentize(lime, 0.3);
+  position: relative;
+  top: rem(150);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: rem(10);
+  @include tablet {
+    top: rem(210);
+  }
+  @include desktop {
+    top: rem(210);
+  }
+}
+.copy-block {
+}
+.logo-block img {
+  height: rem(25);
+}

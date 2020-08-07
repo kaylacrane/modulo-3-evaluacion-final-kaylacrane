@@ -5,7 +5,7 @@ class Footer extends Component {
   render() {
     const githubLink = 'https://github.com/kaylacrane';
     return (
-      <footer>
+      <footer className="footer">
         <div className="copy-block">
           <small>
             <a href={githubLink} title="Kayla's GitHub page">
@@ -15,7 +15,9 @@ class Footer extends Component {
           </small>
         </div>
         <div className="logo-block">
-          <img src={adalabLogo} alt="Adalab logo" />
+          <a href="https://adalab.es/" title="Visit Adalab.es">
+            <img src={adalabLogo} alt="Adalab logo" />
+          </a>
         </div>
       </footer>
     );

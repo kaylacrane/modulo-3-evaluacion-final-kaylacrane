@@ -29,6 +29,7 @@ class SearchByName extends Component {
             type="text"
             onChange={this.searchHandlerChild}
             value={this.props.searchValue}
+            placeholder="Beth Smith"
           ></input>
           <button
             type="reset"

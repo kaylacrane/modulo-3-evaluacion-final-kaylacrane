@@ -1,2 +1,15 @@
 .character-list {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  top: rem(150);
+  @include tablet {
+    top: rem(210);
+  }
+  @include desktop {
+    top: rem(210);
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 }

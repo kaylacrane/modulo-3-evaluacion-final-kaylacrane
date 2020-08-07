@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
 import CharacterCard from './CharacterCard';
+import NoResults from '../NoResults';
 
 class CharacterList extends Component {
   render() {
@@ -22,7 +23,11 @@ class CharacterList extends Component {
     });
     return (
       <div className="character-list">
-        <ul>{charactersHtml}</ul>
+        {charactersHtml.length ? (
+          <ul>{charactersHtml.length ? charactersHtml : <NoResults />}</ul>
+        ) : (
+          <NoResults />
+        )}
       </div>
     );
   }
