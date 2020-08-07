@@ -11,14 +11,16 @@ class Main extends Component {
   render() {
     console.log(this.props);
     return (
-      <div>
+      <React.Fragment>
         <Header
           searchHandler={this.props.searchHandler}
           searchValue={this.props.searchValue}
         />
-        <CharacterList characterList={this.props.characterList} />
+        <main className="main-page">
+          <CharacterList characterList={this.props.characterList} />
+        </main>
         <Footer />
-      </div>
+      </React.Fragment>
     );
   }
 }

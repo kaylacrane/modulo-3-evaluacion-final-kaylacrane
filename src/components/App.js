@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../stylesheets/App.scss';
 import { Link, Route, Switch } from 'react-router-dom';
 import fetchData from '../services/FetchData';
 import Main from './Main';
@@ -66,13 +65,11 @@ class App extends Component {
     console.log(this.state);
     return (
       <React.Fragment>
-        <main>
-          <Switch>
-            <Route exact path="/" component={Landing} />
-            <Route exact path="/main/" render={this.renderMain} />
-            <Route path="/character/:id" render={this.renderCharacterDetails} />
-          </Switch>
-        </main>
+        <Switch>
+          <Route exact path="/" component={Landing} />
+          <Route exact path="/main/" render={this.renderMain} />
+          <Route path="/character/:id" render={this.renderCharacterDetails} />
+        </Switch>
       </React.Fragment>
     );
   }
