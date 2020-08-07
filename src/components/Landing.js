@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
 import fetchQuotes from '../services/FetchQuotes';
+import portalGif from '../images/portal.gif';
 
 class Landing extends Component {
   constructor(props) {
@@ -21,8 +22,17 @@ class Landing extends Component {
     console.log(this.state.quote);
     return (
       <main className="landing-main">
-        <Link to="/main/">Let's Go</Link>
-        <div>{this.state.quote}</div>
+        <div className="portal-quote-block">
+          <img
+            src={portalGif}
+            alt="spinning green space portal"
+            className="portal-gif"
+          />
+          <div className="random-quote">{this.state.quote}</div>
+        </div>
+        <Link to="/main/" className="link-to-main">
+          Let's Get Schwifty{' '}
+        </Link>
       </main>
     );
   }

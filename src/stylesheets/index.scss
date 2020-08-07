@@ -1,5 +1,7 @@
-@import './reset.scss';
-@import './variables.scss';
+@import './core/reset.scss';
+@import './core/variables.scss';
+@import './core/functions.scss';
+@import './core/mixins.scss';
 @import './landing.scss';
 @import './App.scss';
 @import './characterList.scss';
