@@ -20,7 +20,11 @@ class CharacterList extends Component {
         </li>
       );
     });
-    return <ul>{charactersHtml}</ul>;
+    return (
+      <div className="character-list">
+        <ul>{charactersHtml}</ul>
+      </div>
+    );
   }
 }
 

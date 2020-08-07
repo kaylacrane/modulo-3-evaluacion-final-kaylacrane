@@ -22,17 +22,23 @@ class SearchByName extends Component {
     console.log(this.props);
 
     return (
-      <form>
-        <h3>Search characters by name:</h3>
-        <input
-          type="text"
-          onChange={this.searchHandlerChild}
-          value={this.props.searchValue}
-        ></input>
-        <button type="reset" onClick={this.resetHandlerChild}>
-          Clear
-        </button>
-      </form>
+      <div className="form-container">
+        <form className="form">
+          <h3 className="form-title">Search characters by name:</h3>
+          <input
+            type="text"
+            onChange={this.searchHandlerChild}
+            value={this.props.searchValue}
+          ></input>
+          <button
+            type="reset"
+            className="reset-button"
+            onClick={this.resetHandlerChild}
+          >
+            Clear
+          </button>
+        </form>
+      </div>
     );
   }
 }

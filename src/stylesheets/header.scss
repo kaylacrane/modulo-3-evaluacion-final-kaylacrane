@@ -1,0 +1,22 @@
+.header {
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  padding: rem(10) 0;
+}
+.header-title {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  padding: 0 0 rem(10);
+}
+.header-logo {
+  width: 65vw;
+  @include tablet {
+    width: 50vw;
+  }
+  @include desktop {
+    width: 20vw;
+  }
+}

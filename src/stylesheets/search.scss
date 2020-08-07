@@ -1,0 +1,50 @@
+.form-container {
+  width: 100vw;
+  text-align: center;
+  @include desktop {
+    width: 30vw;
+    margin: auto;
+    overflow: hidden;
+  }
+}
+.form {
+  align-items: center;
+  background-color: transparentize(white, 0.5);
+  margin: auto;
+  padding: rem(5);
+  @include desktop {
+    border-radius: rem(20);
+    padding: rem(10);
+  }
+  input {
+    font-size: rem(16);
+    @include tablet {
+      font-size: rem(18);
+    }
+  }
+}
+.form-title {
+  margin: 0;
+  font-size: rem(14);
+  @include tablet {
+    font-size: rem(22);
+    padding: rem(5) 0;
+  }
+}
+.reset-button {
+  background: lightblue;
+  padding: rem(5) rem(10);
+  border: none;
+  width: fit-content;
+  margin: 0 0 0 rem(5);
+  font-size: rem(14);
+  border-radius: rem(5);
+  transition: all 1s;
+  &:hover,
+  &:focus {
+    background-color: darken(lightblue, 50);
+  }
+  @include tablet {
+    font-size: rem(18);
+  }
+}

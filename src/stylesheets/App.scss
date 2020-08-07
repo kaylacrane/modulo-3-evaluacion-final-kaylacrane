@@ -4,10 +4,13 @@
   text-decoration: none;
   font-family: $font-primary;
 }
-.header {
-  border: 1px solid peru;
-}
 .character-image {
   min-height: 40%;
   min-width: 40%;
+}
+.page {
+  height: 100vh;
+  background: url('../images/starry-sky.jpg');
+  background-position: fixed center;
+  overflow-y: scroll;
 }
