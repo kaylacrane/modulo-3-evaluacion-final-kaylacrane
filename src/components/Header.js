@@ -9,6 +9,7 @@ class Header extends Component {
         <SearchByName
           searchHandler={this.props.searchHandler}
           searchValue={this.props.searchValue}
+          resetHandler={this.props.resetHandler}
         />
       </header>
     );

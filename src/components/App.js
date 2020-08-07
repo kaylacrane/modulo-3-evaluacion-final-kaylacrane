@@ -13,6 +13,7 @@ class App extends Component {
     this.renderCharacterDetails = this.renderCharacterDetails.bind(this);
     this.renderMain = this.renderMain.bind(this);
     this.searchHandler = this.searchHandler.bind(this);
+    this.resetHandler = this.resetHandler.bind(this);
     this.state = {
       characterList: [],
       searchText: '',
@@ -30,12 +31,16 @@ class App extends Component {
     console.log(event.currentTarget.value);
     this.setState({ searchText: event.currentTarget.value });
   }
+  resetHandler() {
+    this.setState({ searchText: '' });
+  }
   renderMain() {
     return (
       <Main
         characterList={this.renderFilteredCharacters()}
         searchHandler={this.searchHandler}
         searchValue={this.state.searchText}
+        resetHandler={this.resetHandler}
       />
     );
   }

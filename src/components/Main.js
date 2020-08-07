@@ -15,6 +15,7 @@ class Main extends Component {
         <Header
           searchHandler={this.props.searchHandler}
           searchValue={this.props.searchValue}
+          resetHandler={this.props.resetHandler}
         />
         <main className="main-page">
           <CharacterList characterList={this.props.characterList} />
