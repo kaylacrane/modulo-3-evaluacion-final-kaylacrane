@@ -12,17 +12,20 @@ class Main extends Component {
     this.props.getNextPage();
   }
   render() {
-    console.log(this.props);
     return (
       <div className="page">
         <Header
-          searchHandler={this.props.searchHandler}
+          nameSearchHandler={this.props.nameSearchHandler}
           searchValue={this.props.searchValue}
           resetHandler={this.props.resetHandler}
+          speciesList={this.props.speciesList}
+          speciesSearchHandler={this.props.speciesSearchHandler}
         />
         <main className="main">
           <CharacterList characterList={this.props.characterList} />
-          <button onClick={this.getNextPageChild}>Get next page</button>
+          <button onClick={this.getNextPageChild} className="load-more">
+            Load more results
+          </button>
         </main>
         <Footer />
       </div>

@@ -23,13 +23,13 @@
   transform: translate(-50%, -50%);
   text-align: center;
   top: 50%;
-  width: 50vw;
+  width: 50%;
   @include tablet {
-    font-size: rem(28);
+    font-size: rem(24);
   }
   @include desktop {
-    width: 18vw;
-    font-size: rem(24);
+    width: 40%;
+    font-size: rem(22);
   }
 }
 .portal-quote-block {
@@ -38,14 +38,15 @@
   position: relative;
 }
 .portal-gif {
+  display: block;
   height: auto;
-  width: 100vw;
+  width: 80%;
   margin: auto;
   @include tablet {
-    width: 80vw;
+    width: 70%;
   }
   @include desktop {
-    width: 34vw;
+    width: 60%;
   }
 }
 .link-to-main {

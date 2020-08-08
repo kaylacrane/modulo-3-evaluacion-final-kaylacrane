@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, Route, Switch } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import fetchQuotes from '../services/FetchQuotes';
 import portalGif from '../images/portal.gif';
 
@@ -19,7 +19,6 @@ class Landing extends Component {
     });
   }
   render() {
-    console.log(this.state.quote);
     return (
       <main className="landing-main">
         <div className="portal-quote-block">

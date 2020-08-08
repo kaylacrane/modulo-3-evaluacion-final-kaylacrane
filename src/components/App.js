@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import fetchData from '../services/FetchData';
 import Main from './Main';
 import CharacterDetails from './characters/CharacterDetails';
@@ -13,13 +13,15 @@ class App extends Component {
     this.renderFilteredCharacters = this.renderFilteredCharacters.bind(this);
     this.renderCharacterDetails = this.renderCharacterDetails.bind(this);
     this.renderMain = this.renderMain.bind(this);
-    this.searchHandler = this.searchHandler.bind(this);
+    this.nameSearchHandler = this.nameSearchHandler.bind(this);
+    this.speciesSearchHandler = this.speciesSearchHandler.bind(this);
     this.resetHandler = this.resetHandler.bind(this);
     this.getNextPage = this.getNextPage.bind(this);
     this.state = {
       characterList: [],
       searchText: '',
       page: 1,
+      speciesFilter: 'All',
     };
   }
   componentDidMount() {
@@ -30,21 +32,34 @@ class App extends Component {
       });
     });
   }
-  searchHandler(event) {
-    console.log(event.currentTarget.value);
+
+  nameSearchHandler(event) {
     this.setState({ searchText: event.currentTarget.value });
+  }
+  speciesSearchHandler(event) {
+    console.log('hi');
+    console.log(event.currentTarget.value);
+    this.setState({
+      speciesFilter: event.currentTarget.value,
+    });
   }
   resetHandler() {
     this.setState({ searchText: '' });
   }
   renderMain() {
+    let speciesList = this.state.characterList.map((character) => {
+      return character.species;
+    });
+    speciesList = Array.from(new Set(speciesList));
     return (
       <Main
         characterList={this.renderFilteredCharacters()}
-        searchHandler={this.searchHandler}
+        nameSearchHandler={this.nameSearchHandler}
         searchValue={this.state.searchText}
         resetHandler={this.resetHandler}
         getNextPage={this.getNextPage}
+        speciesList={speciesList}
+        speciesSearchHandler={this.speciesSearchHandler}
       />
     );
   }
@@ -53,6 +68,11 @@ class App extends Component {
   //   )
   renderFilteredCharacters() {
     let characterList = this.state.characterList;
+    console.log(this.state.speciesFilter);
+    if (this.state.speciesFilter !== 'All')
+      characterList = characterList.filter(
+        (character) => character.species === this.state.speciesFilter
+      );
     console.log(characterList);
     if (this.state.searchText !== '') {
       characterList = characterList.filter((character) =>
@@ -66,7 +86,6 @@ class App extends Component {
     return characterList;
   }
   renderCharacterDetails(event) {
-    console.log(this.state);
     const characterID = event.match.params.id;
     const stateCharacterList = this.state.characterList;
     const characterInfo = stateCharacterList.find(
@@ -75,20 +94,16 @@ class App extends Component {
     return <CharacterDetails character={characterInfo} />;
   }
   getNextPage() {
-    console.log(this.state.page);
     const pageNumber = this.state.page + 1;
-    console.log(pageNumber);
-    let newList = this.state.characterList;
     fetchNextPage(pageNumber).then((data) => {
-      data.results.map((character) => {
-        newList = [...newList, character];
-      });
+      console.log(data);
       this.setState({
-        characterList: newList,
+        characterList: [...this.state.characterList, ...data.results],
         page: pageNumber,
       });
     });
   }
+
   render() {
     console.log(this.state);
     return (

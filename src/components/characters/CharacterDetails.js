@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, Route, Switch } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import rickDanceGif from '../../images/rick-booty-dance.gif';
 import Proptypes from 'prop-types';
 
@@ -33,7 +33,7 @@ class CharacterDetail extends Component {
           <div className="character-details">
             <div className="links-block">
               <Link
-                class="fas fa-arrow-circle-left arrows"
+                className="fas fa-arrow-circle-left arrows"
                 to={`/character/${id - 1}`}
               ></Link>
               <Link className="link-back" to="/main/">

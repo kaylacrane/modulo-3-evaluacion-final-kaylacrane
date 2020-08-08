@@ -9,10 +9,3 @@ const fetchNextPage = (pageNumber) => {
 };
 
 export default fetchNextPage;
-
-// fetchData().then((data) => {
-//   this.setState({
-//     characterList: data.results,
-//     pagesInfo: data.info,
-//   });
-// });

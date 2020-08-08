@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import rickFingerGif from '../images/rick-finger.gif';
 import rickBurpGif from '../images/rick-burp.gif';
+
 class NoResults extends Component {
   render() {
     return (
