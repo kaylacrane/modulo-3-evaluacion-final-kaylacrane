@@ -23,11 +23,7 @@ class CharacterList extends Component {
     });
     return (
       <div className="character-list">
-        {charactersHtml.length ? (
-          <ul>{charactersHtml.length ? charactersHtml : <NoResults />}</ul>
-        ) : (
-          <NoResults />
-        )}
+        {charactersHtml.length ? <ul>{charactersHtml}</ul> : <NoResults />}
       </div>
     );
   }

@@ -1,18 +1,16 @@
 .footer {
-  background-color: transparentize(lime, 0.3);
+  background-color: transparentize($color-main, 0.3);
   height: fit-content;
   position: absolute;
+  bottom: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: rem(10);
   width: 100%;
-  @include tablet {
-    // top: rem(215);
-  }
   @include desktop {
-    // top: rem(230);
     padding: rem(15);
+    height: rem(60);
   }
 }
 .copy-block {

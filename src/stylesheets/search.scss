@@ -9,7 +9,7 @@
 }
 .form {
   align-items: center;
-  background-color: transparentize(white, 0.5);
+  background-color: transparentize($color-white, 0.5);
   margin: auto;
   padding: rem(5);
   @include desktop {
@@ -34,7 +34,7 @@
   }
 }
 .reset-button {
-  background: lightblue;
+  background: $color-light;
   padding: rem(5) rem(10);
   border: none;
   width: fit-content;
@@ -44,7 +44,7 @@
   transition: all 1s;
   &:hover,
   &:focus {
-    background-color: darken(lightblue, 50);
+    background-color: darken($color-light, 50);
   }
   @include tablet {
     font-size: rem(18);

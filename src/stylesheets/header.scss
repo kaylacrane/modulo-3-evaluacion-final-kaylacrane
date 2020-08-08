@@ -6,11 +6,12 @@
 }
 .header {
   width: 100%;
-  height: rem(200);
+  height: rem(180);
   position: fixed;
   padding: rem(10) 0;
   z-index: 10;
   background: url('../images/starry-sky.jpg');
+
   @include tablet {
     height: rem(250);
   }
@@ -26,11 +27,14 @@
   padding: 0 0 rem(10);
 }
 .header-logo {
-  width: 65vw;
+  width: 50vw;
+  max-width: rem(340);
   @include tablet {
     width: 50vw;
+    max-width: rem(480);
   }
   @include desktop {
-    max-width: 24vw;
+    width: 24vw;
+    max-width: rem(460);
   }
 }

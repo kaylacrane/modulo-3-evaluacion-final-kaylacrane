@@ -1,8 +1,13 @@
 .no-results {
   width: fit-content;
   margin: auto;
+  height: 75vh;
   img {
     max-width: 100%;
     max-height: 55vh;
   }
+}
+.no-results-title {
+  color: $color-white;
+  font-size: rem(20);
 }

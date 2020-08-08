@@ -4,10 +4,6 @@ import Header from './Header';
 import Footer from './Footer';
 
 class Main extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     console.log(this.props);
     return (

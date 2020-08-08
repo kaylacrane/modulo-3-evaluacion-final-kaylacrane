@@ -13,9 +13,9 @@
   }
 }
 .random-quote {
-  background-color: transparentize(white, 0.3);
+  background-color: transparentize($color-white, 0.3);
   border-radius: rem(15);
-  color: green;
+  color: $color-dark;
   font-size: rem(20);
   left: 50%;
   padding: rem(10);
@@ -24,8 +24,12 @@
   text-align: center;
   top: 50%;
   width: 50vw;
+  @include tablet {
+    font-size: rem(28);
+  }
   @include desktop {
     width: 18vw;
+    font-size: rem(24);
   }
 }
 .portal-quote-block {
@@ -41,14 +45,14 @@
     width: 80vw;
   }
   @include desktop {
-    width: 27vw;
+    width: 24vw;
   }
 }
 .link-to-main {
-  border: green rem(2) solid;
+  border: $color-dark rem(2) solid;
   border-radius: rem(10);
-  color: black;
-  background-color: green;
+  color: $color-black;
+  background-color: $color-dark;
   font-size: rem(20);
   padding: rem(10) rem(20);
   width: fit-content;
@@ -58,12 +62,12 @@
   &:focus,
   &:hover {
     animation: pulse 1s;
-    box-shadow: 0 0 rem(80) rem(80) rgba(green, 0);
+    box-shadow: 0 0 rem(80) rem(80) rgba($color-dark, 0);
   }
 }
 
 @keyframes pulse {
   0% {
-    box-shadow: 0 0 0 rem(20) rgba(green, 0.5);
+    box-shadow: 0 0 0 rem(20) rgba($color-dark, 0.5);
   }
 }

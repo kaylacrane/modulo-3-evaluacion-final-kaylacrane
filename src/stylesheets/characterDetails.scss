@@ -1,0 +1,65 @@
+.details-page {
+  height: 100vh;
+  background: url('../images/starry-sky.jpg');
+  background-size: cover;
+}
+.character-details {
+  background-color: transparentize($color-main, 0.5);
+  width: 90vw;
+  margin: auto;
+  padding: rem(20);
+  border-bottom-left-radius: rem(20);
+  border-bottom-right-radius: rem(20);
+  display: flex;
+  flex-direction: column;
+  @include tablet {
+    width: 80vw;
+  }
+  @include tablet {
+    width: 30vw;
+  }
+}
+.link-back {
+  color: $color-black;
+  font-weight: bold;
+  font-size: rem(20);
+  margin: 0 0 rem(10);
+  @include tablet {
+    font-size: rem(24);
+  }
+}
+.character-image {
+  width: 100%;
+  display: block;
+}
+.character-details-stats {
+  padding: rem(10);
+  @include tablet {
+    font-size: rem(26);
+    padding: rem(20);
+  }
+  @include desktop {
+    font-size: rem(22);
+    padding: rem(15);
+  }
+  h2 {
+    padding: rem(5) rem(10);
+    background-color: transparentize($color-main, 0.5);
+    width: 100%;
+    margin: auto;
+    border-radius: rem(10);
+    text-align: center;
+  }
+  div {
+    margin: rem(10);
+
+    .details-title {
+      font-weight: bold;
+      margin: rem(5) 0;
+    }
+  }
+}
+
+.gif {
+  height: 60vh;
+}
