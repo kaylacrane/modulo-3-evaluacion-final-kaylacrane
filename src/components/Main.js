@@ -4,6 +4,13 @@ import Header from './Header';
 import Footer from './Footer';
 
 class Main extends Component {
+  constructor(props) {
+    super(props);
+    this.getNextPageChild = this.getNextPageChild.bind(this);
+  }
+  getNextPageChild() {
+    this.props.getNextPage();
+  }
   render() {
     console.log(this.props);
     return (
@@ -15,6 +22,7 @@ class Main extends Component {
         />
         <main className="main">
           <CharacterList characterList={this.props.characterList} />
+          <button onClick={this.getNextPageChild}>Get next page</button>
         </main>
         <Footer />
       </div>

@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
-import { Link, Route, Switch } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import CharacterCard from './CharacterCard';
 import NoResults from '../NoResults';
+import Proptypes from 'prop-types';
 
 class CharacterList extends Component {
   render() {
     console.log(this.props);
     const charactersHtml = this.props.characterList.map((character) => {
+      character.PropTypes = {
+        name: Proptypes.string,
+        species: Proptypes.string,
+        image: Proptypes.string,
+        id: Proptypes.number,
+      };
       const { name, id, species, image } = character;
       return (
         <li key={id}>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
 import rickDanceGif from '../../images/rick-booty-dance.gif';
+import Proptypes from 'prop-types';
 
 class CharacterDetail extends Component {
   render() {
@@ -16,6 +17,17 @@ class CharacterDetail extends Component {
         image,
         episode,
       } = this.props.character;
+      this.props.character.PropTypes = {
+        id: Proptypes.number,
+        name: Proptypes.string,
+        status: Proptypes.string,
+        species: Proptypes.string,
+        origin: Proptypes.object,
+        type: Proptypes.string,
+        location: Proptypes.object,
+        image: Proptypes.string,
+        episode: Proptypes.number,
+      };
       return (
         <div className="details-page">
           <div className="character-details">

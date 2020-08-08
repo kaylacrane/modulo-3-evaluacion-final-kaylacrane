@@ -4,6 +4,7 @@ import fetchData from '../services/FetchData';
 import Main from './Main';
 import CharacterDetails from './characters/CharacterDetails';
 import Landing from '../components/Landing';
+import fetchNextPage from '../services/FetchNextPage';
 
 class App extends Component {
   constructor(props) {
@@ -14,6 +15,7 @@ class App extends Component {
     this.renderMain = this.renderMain.bind(this);
     this.searchHandler = this.searchHandler.bind(this);
     this.resetHandler = this.resetHandler.bind(this);
+    this.getNextPage = this.getNextPage.bind(this);
     this.state = {
       characterList: [],
       searchText: '',
@@ -42,11 +44,16 @@ class App extends Component {
         searchHandler={this.searchHandler}
         searchValue={this.state.searchText}
         resetHandler={this.resetHandler}
+        getNextPage={this.getNextPage}
       />
     );
   }
+  // .sort((a, b) =>
+  //     a.name.toLowerCase().localeCompare(b.name.toLowerCase())
+  //   )
   renderFilteredCharacters() {
     let characterList = this.state.characterList;
+    console.log(characterList);
     if (this.state.searchText !== '') {
       characterList = characterList.filter((character) =>
         character.name
@@ -55,7 +62,7 @@ class App extends Component {
       );
       return characterList;
     }
-    console.log(characterList);
+
     return characterList;
   }
   renderCharacterDetails(event) {
@@ -66,6 +73,21 @@ class App extends Component {
       (character) => character.id === parseInt(characterID)
     );
     return <CharacterDetails character={characterInfo} />;
+  }
+  getNextPage() {
+    console.log(this.state.page);
+    const pageNumber = this.state.page + 1;
+    console.log(pageNumber);
+    let newList = this.state.characterList;
+    fetchNextPage(pageNumber).then((data) => {
+      data.results.map((character) => {
+        newList = [...newList, character];
+      });
+      this.setState({
+        characterList: newList,
+        page: pageNumber,
+      });
+    });
   }
   render() {
     console.log(this.state);
