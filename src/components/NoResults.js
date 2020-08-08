@@ -5,8 +5,8 @@ class NoResults extends Component {
   render() {
     return (
       <div className="no-results">
-        <h2 className="no-results-title">I got nothin', chump</h2>
-        <img src={rickFingerGif} alt="Rick gif" />
+        <img src={rickBurpGif} alt="Rick gif" />
+        <h2 className="no-results-text">I got nothin', chump</h2>
       </div>
     );
   }

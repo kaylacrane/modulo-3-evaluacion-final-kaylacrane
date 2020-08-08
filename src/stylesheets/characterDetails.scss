@@ -6,7 +6,7 @@
 .character-details {
   background-color: transparentize($color-main, 0.5);
   width: 90vw;
-  margin: auto;
+  margin: 0 auto;
   padding: rem(20);
   border-bottom-left-radius: rem(20);
   border-bottom-right-radius: rem(20);
@@ -15,19 +15,29 @@
   @include tablet {
     width: 80vw;
   }
-  @include tablet {
+  @include desktop {
     width: 30vw;
   }
 }
-.link-back {
-  color: $color-black;
-  font-weight: bold;
+.links-block {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
   font-size: rem(20);
-  margin: 0 0 rem(10);
-  @include tablet {
-    font-size: rem(24);
+  align-items: center;
+  padding: 0 rem(10) rem(10);
+  .link-back {
+    color: $color-black;
+    font-weight: bold;
+    @include tablet {
+      font-size: rem(24);
+    }
+  }
+  .arrows {
+    color: $color-black;
   }
 }
+
 .character-image {
   width: 100%;
   display: block;
@@ -59,7 +69,49 @@
     }
   }
 }
-
-.gif {
-  height: 60vh;
+.details-page,
+.nothing {
+  padding: rem(40);
+  .nothing-text {
+    display: block;
+    margin: rem(20) auto;
+    background-color: transparentize($color-white, 0.4);
+    padding: rem(30);
+    text-align: center;
+    border-radius: rem(10);
+    font-size: rem(20);
+    width: fit-content;
+    @include tablet {
+      font-size: rem(24);
+    }
+  }
+  .dance-gif {
+    height: 45vh;
+    display: block;
+    margin: rem(40) auto;
+    @include tablet {
+      margin: rem(60) auto;
+    }
+  }
+  .back-button {
+    border: $color-dark rem(2) solid;
+    border-radius: rem(10);
+    color: $color-black;
+    background-color: $color-dark;
+    font-size: rem(20);
+    padding: rem(10) rem(20);
+    width: fit-content;
+    margin: auto;
+    display: block;
+    transition: all 1s ease;
+    @include tablet {
+      font-size: rem(30);
+      padding: rem(20) rem(30);
+    }
+    &:focus,
+    &:hover {
+      animation: pulse 1s;
+      box-shadow: 0 0 rem(80) rem(80) rgba($color-dark, 0);
+    }
+  }
 }

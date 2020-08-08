@@ -1,13 +1,21 @@
 .no-results {
   width: fit-content;
   margin: auto;
-  height: 75vh;
+  height: 60vh;
   img {
     max-width: 100%;
-    max-height: 55vh;
+    max-height: 50vh;
   }
 }
-.no-results-title {
+.no-results-text {
   color: $color-white;
   font-size: rem(20);
+  margin: rem(10) auto;
+  text-align: center;
+  @include tablet {
+    font-size: rem(28);
+  }
+  @include desktop {
+    font-size: rem(32);
+  }
 }

@@ -19,9 +19,20 @@ class CharacterDetail extends Component {
       return (
         <div className="details-page">
           <div className="character-details">
-            <Link className="link-back" to="/main/">
-              Back
-            </Link>
+            <div className="links-block">
+              <Link
+                class="fas fa-arrow-circle-left arrows"
+                to={`/character/${id - 1}`}
+              ></Link>
+              <Link className="link-back" to="/main/">
+                Back
+              </Link>
+              <Link
+                className="fas fa-arrow-circle-right arrows"
+                to={`/character/${id + 1}`}
+              ></Link>
+            </div>
+
             <img src={image} alt={name} className="character-image" />
             <div className="character-details-stats">
               <h2>{name}</h2>
@@ -62,9 +73,14 @@ class CharacterDetail extends Component {
       );
     } else {
       return (
-        <div className="details-page">
-          <span>Move along</span>
-          <img className="gif" src={rickDanceGif} alt="Rick dance gif" />
+        <div className="details-page nothing">
+          <span className="nothing-text">
+            Nothin' here but some sweet dance moves
+          </span>
+          <img className="dance-gif" src={rickDanceGif} alt="Rick dance gif" />
+          <Link className="back-button" to="/main/">
+            Back
+          </Link>
         </div>
       );
     }
