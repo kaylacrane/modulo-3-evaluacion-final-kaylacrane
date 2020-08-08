@@ -11,17 +11,20 @@ class SearchBySpecies extends Component {
   }
   render() {
     let speciesDropDowns;
-    if (this.props.speciesList !== 'All') {
-      speciesDropDowns = this.props.speciesList.map((species) => {
-        return <option value={species}>{species}</option>;
-      });
-    }
+    speciesDropDowns = this.props.speciesList.map((species, index) => {
+      return (
+        <option key={index} value={species}>
+          {species}
+        </option>
+      );
+    });
 
     return (
       <select
         name="species"
         id="species"
         onChange={this.speciesSearchHandlerChild}
+        className="species-filter"
       >
         <option value="All" defaultValue>
           All

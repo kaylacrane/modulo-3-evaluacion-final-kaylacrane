@@ -34,18 +34,18 @@ class App extends Component {
   }
 
   nameSearchHandler(event) {
+    console.log(event.currentTarget.value);
     this.setState({ searchText: event.currentTarget.value });
   }
   speciesSearchHandler(event) {
-    console.log('hi');
-    console.log(event.currentTarget.value);
     this.setState({
       speciesFilter: event.currentTarget.value,
     });
   }
   resetHandler() {
-    this.setState({ searchText: '' });
+    this.setState({ searchText: '', speciesFilter: 'All' });
   }
+
   renderMain() {
     let speciesList = this.state.characterList.map((character) => {
       return character.species;
@@ -63,27 +63,19 @@ class App extends Component {
       />
     );
   }
-  // .sort((a, b) =>
-  //     a.name.toLowerCase().localeCompare(b.name.toLowerCase())
-  //   )
   renderFilteredCharacters() {
     let characterList = this.state.characterList;
-    console.log(this.state.speciesFilter);
-    if (this.state.speciesFilter !== 'All')
-      characterList = characterList.filter(
-        (character) => character.species === this.state.speciesFilter
-      );
-    console.log(characterList);
-    if (this.state.searchText !== '') {
-      characterList = characterList.filter((character) =>
-        character.name
+    return (characterList = characterList
+      .filter((character) => {
+        return character.name
           .toLowerCase()
-          .includes(this.state.searchText.toLowerCase())
-      );
-      return characterList;
-    }
-
-    return characterList;
+          .includes(this.state.searchText.toLowerCase());
+      })
+      .filter((character) => {
+        return this.state.speciesFilter === 'All'
+          ? true
+          : character.species === this.state.speciesFilter;
+      }));
   }
   renderCharacterDetails(event) {
     const characterID = event.match.params.id;
