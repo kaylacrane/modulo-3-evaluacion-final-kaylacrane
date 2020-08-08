@@ -23,6 +23,7 @@ class Header extends Component {
             resetHandler={this.props.resetHandler}
             speciesList={this.props.speciesList}
             speciesSearchHandler={this.props.speciesSearchHandler}
+            speciesFilter={this.props.speciesFilter}
           />
         </header>
       </React.Fragment>

@@ -6,6 +6,7 @@ import Proptypes from 'prop-types';
 
 class CharacterList extends Component {
   render() {
+    console.log(this.props);
     const charactersHtml = this.props.characterList.map((character) => {
       character.PropTypes = {
         name: Proptypes.string,
@@ -22,6 +23,7 @@ class CharacterList extends Component {
               id={id}
               species={species}
               image={image}
+              searchValue={this.props.searchValue}
             />
           </Link>
         </li>

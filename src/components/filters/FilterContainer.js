@@ -15,10 +15,14 @@ class FilterContainer extends Component {
       <div className="form-container">
         <form className="form">
           <h3 className="form-title">Search characters:</h3>
-          <SearchByName nameSearchHandler={this.props.nameSearchHandler} />
+          <SearchByName
+            nameSearchHandler={this.props.nameSearchHandler}
+            searchValue={this.props.searchValue}
+          />
           <SearchBySpecies
             speciesSearchHandler={this.props.speciesSearchHandler}
             speciesList={this.props.speciesList}
+            speciesFilter={this.props.speciesFilter}
           />
           <button
             type="reset"

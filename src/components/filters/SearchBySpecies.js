@@ -10,6 +10,7 @@ class SearchBySpecies extends Component {
     this.props.speciesSearchHandler(event);
   }
   render() {
+    console.log(this.props);
     let speciesDropDowns;
     speciesDropDowns = this.props.speciesList.map((species, index) => {
       return (
@@ -25,6 +26,7 @@ class SearchBySpecies extends Component {
         id="species"
         onChange={this.speciesSearchHandlerChild}
         className="species-filter"
+        value={this.props.speciesFilter}
       >
         <option value="All" defaultValue>
           All

@@ -4,7 +4,6 @@ import Emoji from './Emoji';
 class CharacterCard extends Component {
   render() {
     const { name, image, species } = this.props;
-
     return (
       <div className="character-card">
         <span className="character-species">

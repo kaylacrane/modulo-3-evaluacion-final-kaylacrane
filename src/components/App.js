@@ -24,6 +24,7 @@ class App extends Component {
       speciesFilter: 'All',
     };
   }
+  // DATA FETCHERS
   componentDidMount() {
     fetchData().then((data) => {
       this.setState({
@@ -32,9 +33,18 @@ class App extends Component {
       });
     });
   }
-
+  getNextPage() {
+    const pageNumber = this.state.page + 1;
+    fetchNextPage(pageNumber).then((data) => {
+      console.log(data);
+      this.setState({
+        characterList: [...this.state.characterList, ...data.results],
+        page: pageNumber,
+      });
+    });
+  }
+  // FILTERS AND HANDLERS
   nameSearchHandler(event) {
-    console.log(event.currentTarget.value);
     this.setState({ searchText: event.currentTarget.value });
   }
   speciesSearchHandler(event) {
@@ -45,7 +55,7 @@ class App extends Component {
   resetHandler() {
     this.setState({ searchText: '', speciesFilter: 'All' });
   }
-
+  // RENDER
   renderMain() {
     let speciesList = this.state.characterList.map((character) => {
       return character.species;
@@ -60,12 +70,13 @@ class App extends Component {
         getNextPage={this.getNextPage}
         speciesList={speciesList}
         speciesSearchHandler={this.speciesSearchHandler}
+        speciesFilter={this.state.speciesFilter}
       />
     );
   }
   renderFilteredCharacters() {
     let characterList = this.state.characterList;
-    return (characterList = characterList
+    return characterList
       .filter((character) => {
         return character.name
           .toLowerCase()
@@ -75,7 +86,8 @@ class App extends Component {
         return this.state.speciesFilter === 'All'
           ? true
           : character.species === this.state.speciesFilter;
-      }));
+      })
+      .sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
   }
   renderCharacterDetails(event) {
     const characterID = event.match.params.id;
@@ -83,17 +95,12 @@ class App extends Component {
     const characterInfo = stateCharacterList.find(
       (character) => character.id === parseInt(characterID)
     );
-    return <CharacterDetails character={characterInfo} />;
-  }
-  getNextPage() {
-    const pageNumber = this.state.page + 1;
-    fetchNextPage(pageNumber).then((data) => {
-      console.log(data);
-      this.setState({
-        characterList: [...this.state.characterList, ...data.results],
-        page: pageNumber,
-      });
-    });
+    return (
+      <CharacterDetails
+        character={characterInfo}
+        searchValue={this.state.searchText}
+      />
+    );
   }
 
   render() {
