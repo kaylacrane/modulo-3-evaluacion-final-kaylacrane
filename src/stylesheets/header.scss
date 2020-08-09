@@ -1,22 +1,20 @@
-.header-space {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 8;
-}
 .header {
-  width: 100%;
+  background-color: $color-light;
+  display: flex;
+  flex-direction: column;
   height: rem(225);
-  position: fixed;
   padding: rem(10) 0;
+  position: fixed;
+  width: 100%;
   z-index: 10;
-  background: url('../images/starry-sky.jpg');
-
   @include tablet {
     height: rem(250);
   }
   @include desktop {
-    height: rem(260);
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: rem(150);
   }
 }
 .header-title {
@@ -24,16 +22,19 @@
   display: flex;
   flex-direction: column;
   margin: 0 auto;
+  @include desktop {
+    margin: 0 rem(20) 0 0;
+  }
 }
 .header-logo {
-  width: 50vw;
   max-width: rem(220);
+  width: 50vw;
   @include tablet {
-    width: 50vw;
     max-width: rem(430);
+    width: 50vw;
   }
   @include desktop {
-    width: 28vw;
     max-width: rem(400);
+    width: 28vw;
   }
 }

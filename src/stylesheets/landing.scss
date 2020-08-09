@@ -1,47 +1,55 @@
 .landing-main {
+  align-items: center;
   background: url('../images/rick-and-morty-starry-sky.jpg');
-  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 100vh;
+  background-size: cover;
   display: flex;
   flex-direction: column;
+  height: 100vh;
   justify-content: flex-start;
-  align-items: center;
   @include desktop {
     background-position: bottom center;
   }
 }
+.portal-quote-block {
+  height: fit-content;
+  position: relative;
+  width: fit-content;
+}
 .random-quote {
+  animation-duration: 2s;
+  animation-name: floatIn;
   background-color: transparentize($color-white, 0.3);
   border-radius: rem(15);
   color: $color-dark;
+  cursor: pointer;
   font-size: rem(20);
   left: 50%;
   padding: rem(10);
   position: absolute;
   transform: translate(-50%, -50%);
+  transition: all 1s;
   text-align: center;
   top: 50%;
   width: 50%;
+  &:hover {
+    background-color: $color-white;
+    box-shadow: 0 0 rem(15) rem(15) $color-main;
+  }
   @include tablet {
     font-size: rem(24);
   }
   @include desktop {
-    width: 40%;
     font-size: rem(22);
+    width: 40%;
   }
-}
-.portal-quote-block {
-  height: fit-content;
-  width: fit-content;
-  position: relative;
 }
 .portal-gif {
   display: block;
   height: auto;
-  width: 80%;
   margin: auto;
+  width: 80%;
   @include tablet {
     width: 70%;
   }
@@ -50,10 +58,10 @@
   }
 }
 .link-to-main {
+  background-color: $color-dark;
   border: $color-dark rem(2) solid;
   border-radius: rem(10);
   color: $color-black;
-  background-color: $color-dark;
   font-size: rem(20);
   padding: rem(10) rem(20);
   width: fit-content;
@@ -62,13 +70,30 @@
   }
   &:focus,
   &:hover {
-    animation: pulse 1s;
+    animation: pulseOut 1s;
     box-shadow: 0 0 rem(80) rem(80) rgba($color-dark, 0);
   }
 }
 
-@keyframes pulse {
+@keyframes pulseOut {
   0% {
     box-shadow: 0 0 0 rem(20) rgba($color-dark, 0.5);
+  }
+}
+@keyframes floatIn {
+  0% {
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    top: 50%;
+  }
+  60% {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1.5);
+  }
+  100% {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
   }
 }

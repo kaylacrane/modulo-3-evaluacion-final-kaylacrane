@@ -6,12 +6,20 @@ import portalGif from '../images/portal.gif';
 class Landing extends Component {
   constructor(props) {
     super(props);
+    this.clickQuote = this.clickQuote.bind(this);
     this.state = {
       quote: '',
     };
   }
 
   componentDidMount() {
+    fetchQuotes().then((data) => {
+      this.setState({
+        quote: data.data,
+      });
+    });
+  }
+  clickQuote() {
     fetchQuotes().then((data) => {
       this.setState({
         quote: data.data,
@@ -27,7 +35,9 @@ class Landing extends Component {
             alt="spinning green space portal"
             className="portal-gif"
           />
-          <div className="random-quote">{this.state.quote}</div>
+          <div className="random-quote" onClick={this.clickQuote}>
+            {this.state.quote}
+          </div>
         </div>
         <Link to="/main/" className="link-to-main">
           Let's Get Schwifty{' '}

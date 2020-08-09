@@ -1,10 +1,10 @@
 .no-results {
-  width: fit-content;
-  margin: auto;
   height: 60vh;
+  margin: auto;
+  width: fit-content;
   img {
-    max-width: 100%;
     max-height: 50vh;
+    max-width: 100%;
   }
 }
 .no-results-text {
