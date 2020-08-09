@@ -12,7 +12,6 @@ class SearchByStatus extends Component {
     });
   }
   render() {
-    console.log(this.props);
     return (
       <label htmlFor="isAlive" className="status-filter">
         <input

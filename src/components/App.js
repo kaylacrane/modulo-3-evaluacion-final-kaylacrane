@@ -49,7 +49,6 @@ class App extends Component {
   }
   // FILTERS AND HANDLERS
   filterHandler(data) {
-    console.log(data);
     this.setState({ [data.key]: data.value });
   }
   resetHandler() {
@@ -69,8 +68,8 @@ class App extends Component {
     let speciesList = this.state.characterList.map((character) => {
       return character.species;
     });
-    speciesList = Array.from(new Set(speciesList));
-
+    /* to get list of species without duplicates */
+    speciesList = [...new Set(speciesList)];
     return (
       <Main
         nextPageButton={this.nextPageButton()}

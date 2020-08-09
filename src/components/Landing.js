@@ -40,7 +40,7 @@ class Landing extends Component {
           </div>
         </div>
         <Link to="/main/" className="link-to-main">
-          Let's Get Schwifty{' '}
+          Let's Get Schwifty
         </Link>
       </main>
     );
