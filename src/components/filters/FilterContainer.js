@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SearchByName from './SearchByName';
 import SearchBySpecies from './SearchBySpecies';
+import SearchByStatus from './SearchByStatus';
 
 class FilterContainer extends Component {
   constructor(props) {
@@ -13,17 +14,23 @@ class FilterContainer extends Component {
   render() {
     return (
       <div className="form-container">
+        <h3 className="form-title">Search characters:</h3>
         <form className="form">
-          <h3 className="form-title">Search characters:</h3>
           <SearchByName
             nameSearchHandler={this.props.nameSearchHandler}
             searchValue={this.props.searchValue}
           />
-          <SearchBySpecies
-            speciesSearchHandler={this.props.speciesSearchHandler}
-            speciesList={this.props.speciesList}
-            speciesFilter={this.props.speciesFilter}
-          />
+          <div className="filter-block">
+            <SearchBySpecies
+              speciesSearchHandler={this.props.speciesSearchHandler}
+              speciesList={this.props.speciesList}
+              speciesFilter={this.props.speciesFilter}
+            />
+            <SearchByStatus
+              isAliveOnly={this.props.isAliveOnly}
+              isAliveHandler={this.props.isAliveHandler}
+            />
+          </div>
           <button
             type="reset"
             className="reset-button"

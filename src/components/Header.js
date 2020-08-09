@@ -24,6 +24,8 @@ class Header extends Component {
             speciesList={this.props.speciesList}
             speciesSearchHandler={this.props.speciesSearchHandler}
             speciesFilter={this.props.speciesFilter}
+            isAliveOnly={this.props.isAliveOnly}
+            isAliveHandler={this.props.isAliveHandler}
           />
         </header>
       </React.Fragment>

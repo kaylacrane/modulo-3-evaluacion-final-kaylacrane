@@ -12,7 +12,6 @@ class Main extends Component {
     this.props.getNextPage();
   }
   render() {
-    console.log(this.props);
     return (
       <div className="page">
         <Header
@@ -22,6 +21,8 @@ class Main extends Component {
           speciesList={this.props.speciesList}
           speciesSearchHandler={this.props.speciesSearchHandler}
           speciesFilter={this.props.speciesFilter}
+          isAliveOnly={this.props.isAliveOnly}
+          isAliveHandler={this.props.isAliveHandler}
         />
         <main className="main">
           <CharacterList

@@ -4,7 +4,6 @@ import fetchData from '../services/FetchData';
 import Main from './Main';
 import CharacterDetails from './characters/CharacterDetails';
 import Landing from '../components/Landing';
-import fetchNextPage from '../services/FetchNextPage';
 
 class App extends Component {
   constructor(props) {
@@ -18,12 +17,14 @@ class App extends Component {
     this.resetHandler = this.resetHandler.bind(this);
     this.getNextPage = this.getNextPage.bind(this);
     this.nextPageButton = this.nextPageButton.bind(this);
+    this.isAliveHandler = this.isAliveHandler.bind(this);
     this.state = {
       characterList: [],
       searchText: '',
       page: 1,
       speciesFilter: 'All',
       maxPages: 1,
+      isAliveOnly: false,
     };
   }
   // DATA FETCHERS
@@ -57,8 +58,12 @@ class App extends Component {
       speciesFilter: event.currentTarget.value,
     });
   }
+  isAliveHandler(event) {
+    console.log(event.currentTarget.checked);
+    this.setState({ isAliveOnly: event.currentTarget.checked });
+  }
   resetHandler() {
-    this.setState({ searchText: '', speciesFilter: 'All' });
+    this.setState({ searchText: '', speciesFilter: 'All', isAliveOnly: false });
   }
   nextPageButton() {
     const { maxPages, page } = this.state;
@@ -78,6 +83,7 @@ class App extends Component {
 
     return (
       <Main
+        isAliveHandler={this.isAliveHandler}
         nextPageButton={this.nextPageButton()}
         characterList={this.renderFilteredCharacters()}
         nameSearchHandler={this.nameSearchHandler}
@@ -87,6 +93,7 @@ class App extends Component {
         speciesList={speciesList}
         speciesSearchHandler={this.speciesSearchHandler}
         speciesFilter={this.state.speciesFilter}
+        isAliveOnly={this.state.isAliveOnly}
       />
     );
   }
@@ -102,6 +109,9 @@ class App extends Component {
         return this.state.speciesFilter === 'All'
           ? true
           : character.species === this.state.speciesFilter;
+      })
+      .filter((character) => {
+        return this.state.isAliveOnly ? character.status === 'Alive' : true;
       })
       .sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
   }
@@ -120,7 +130,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state);
     return (
       <React.Fragment>
         <Switch>
