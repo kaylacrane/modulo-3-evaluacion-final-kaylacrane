@@ -28,7 +28,10 @@ class Main extends Component {
             characterList={this.props.characterList}
             searchValue={this.props.searchValue}
           />
-          <button onClick={this.getNextPageChild} className="load-more">
+          <button
+            onClick={this.getNextPageChild}
+            className={`load-more ${this.props.nextPageButton}`}
+          >
             Load more results
           </button>
         </main>

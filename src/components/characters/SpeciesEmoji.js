@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Emoji extends Component {
+class SpeciesEmoji extends Component {
   render() {
     const { species } = this.props;
     let emoji = '';
@@ -41,4 +41,4 @@ class Emoji extends Component {
   }
 }
 
-export default Emoji;
+export default SpeciesEmoji;

@@ -5,7 +5,6 @@ import Proptypes from 'prop-types';
 
 class CharacterDetail extends Component {
   render() {
-    console.log(this.props);
     if (this.props.character) {
       const {
         id,

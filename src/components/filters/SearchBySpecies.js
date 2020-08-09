@@ -6,11 +6,9 @@ class SearchBySpecies extends Component {
     this.speciesSearchHandlerChild = this.speciesSearchHandlerChild.bind(this);
   }
   speciesSearchHandlerChild(event) {
-    console.log(event.target.value);
     this.props.speciesSearchHandler(event);
   }
   render() {
-    console.log(this.props);
     let speciesDropDowns;
     speciesDropDowns = this.props.speciesList.map((species, index) => {
       return (

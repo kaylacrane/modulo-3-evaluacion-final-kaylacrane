@@ -17,31 +17,36 @@ class App extends Component {
     this.speciesSearchHandler = this.speciesSearchHandler.bind(this);
     this.resetHandler = this.resetHandler.bind(this);
     this.getNextPage = this.getNextPage.bind(this);
+    this.nextPageButton = this.nextPageButton.bind(this);
     this.state = {
       characterList: [],
       searchText: '',
       page: 1,
       speciesFilter: 'All',
+      maxPages: 1,
     };
   }
   // DATA FETCHERS
   componentDidMount() {
-    fetchData().then((data) => {
+    const pageNumber = this.state.page;
+    fetchData(pageNumber).then((data) => {
       this.setState({
         characterList: data.results,
-        pagesInfo: data.info,
+        maxPages: data.info.pages,
       });
     });
   }
   getNextPage() {
-    const pageNumber = this.state.page + 1;
-    fetchNextPage(pageNumber).then((data) => {
-      console.log(data);
-      this.setState({
-        characterList: [...this.state.characterList, ...data.results],
-        page: pageNumber,
+    const { maxPages, page } = this.state;
+    const nextPage = page + 1;
+    if (nextPage <= maxPages) {
+      fetchData(page + 1).then((data) => {
+        this.setState({
+          characterList: [...this.state.characterList, ...data.results],
+          page: nextPage,
+        });
       });
-    });
+    }
   }
   // FILTERS AND HANDLERS
   nameSearchHandler(event) {
@@ -55,14 +60,25 @@ class App extends Component {
   resetHandler() {
     this.setState({ searchText: '', speciesFilter: 'All' });
   }
+  nextPageButton() {
+    const { maxPages, page } = this.state;
+    const nextPage = page + 1;
+    if (nextPage > maxPages) {
+      return 'disabled';
+    } else {
+      return '';
+    }
+  }
   // RENDER
   renderMain() {
     let speciesList = this.state.characterList.map((character) => {
       return character.species;
     });
     speciesList = Array.from(new Set(speciesList));
+
     return (
       <Main
+        nextPageButton={this.nextPageButton()}
         characterList={this.renderFilteredCharacters()}
         nameSearchHandler={this.nameSearchHandler}
         searchValue={this.state.searchText}

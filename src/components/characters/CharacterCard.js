@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Emoji from './Emoji';
+import SpeciesEmoji from './SpeciesEmoji';
 
 class CharacterCard extends Component {
   render() {
@@ -7,7 +7,7 @@ class CharacterCard extends Component {
     return (
       <div className="character-card">
         <span className="character-species">
-          <Emoji species={species} />
+          <SpeciesEmoji species={species} />
         </span>
         <img src={image} alt={name} className="card-image" />
 
