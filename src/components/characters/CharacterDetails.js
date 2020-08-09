@@ -91,7 +91,7 @@ class CharacterDetail extends Component {
           </span>
           <img className="dance-gif" src={rickDanceGif} alt="Rick dance gif" />
           <Link className="back-button" to="/main/">
-            Back
+            Home
           </Link>
         </div>
       );
