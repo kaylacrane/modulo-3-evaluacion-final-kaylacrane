@@ -15,14 +15,12 @@ class Main extends Component {
     return (
       <div className="page">
         <Header
-          nameSearchHandler={this.props.nameSearchHandler}
           searchValue={this.props.searchValue}
           resetHandler={this.props.resetHandler}
           speciesList={this.props.speciesList}
-          speciesSearchHandler={this.props.speciesSearchHandler}
           speciesFilter={this.props.speciesFilter}
           isAliveOnly={this.props.isAliveOnly}
-          isAliveHandler={this.props.isAliveHandler}
+          filterHandler={this.props.filterHandler}
         />
         <main className="main">
           <CharacterList

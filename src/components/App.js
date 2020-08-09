@@ -12,12 +12,10 @@ class App extends Component {
     this.renderFilteredCharacters = this.renderFilteredCharacters.bind(this);
     this.renderCharacterDetails = this.renderCharacterDetails.bind(this);
     this.renderMain = this.renderMain.bind(this);
-    this.nameSearchHandler = this.nameSearchHandler.bind(this);
-    this.speciesSearchHandler = this.speciesSearchHandler.bind(this);
     this.resetHandler = this.resetHandler.bind(this);
     this.getNextPage = this.getNextPage.bind(this);
     this.nextPageButton = this.nextPageButton.bind(this);
-    this.isAliveHandler = this.isAliveHandler.bind(this);
+    this.filterHandler = this.filterHandler.bind(this);
     this.state = {
       characterList: [],
       searchText: '',
@@ -50,17 +48,9 @@ class App extends Component {
     }
   }
   // FILTERS AND HANDLERS
-  nameSearchHandler(event) {
-    this.setState({ searchText: event.currentTarget.value });
-  }
-  speciesSearchHandler(event) {
-    this.setState({
-      speciesFilter: event.currentTarget.value,
-    });
-  }
-  isAliveHandler(event) {
-    console.log(event.currentTarget.checked);
-    this.setState({ isAliveOnly: event.currentTarget.checked });
+  filterHandler(data) {
+    console.log(data);
+    this.setState({ [data.key]: data.value });
   }
   resetHandler() {
     this.setState({ searchText: '', speciesFilter: 'All', isAliveOnly: false });
@@ -83,15 +73,13 @@ class App extends Component {
 
     return (
       <Main
-        isAliveHandler={this.isAliveHandler}
         nextPageButton={this.nextPageButton()}
         characterList={this.renderFilteredCharacters()}
-        nameSearchHandler={this.nameSearchHandler}
         searchValue={this.state.searchText}
         resetHandler={this.resetHandler}
         getNextPage={this.getNextPage}
         speciesList={speciesList}
-        speciesSearchHandler={this.speciesSearchHandler}
+        filterHandler={this.filterHandler}
         speciesFilter={this.state.speciesFilter}
         isAliveOnly={this.state.isAliveOnly}
       />

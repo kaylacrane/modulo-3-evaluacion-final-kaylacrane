@@ -35,8 +35,8 @@
   @include desktop {
     border-radius: rem(20);
     margin: auto;
-    padding: rem(15) rem(50);
-    width: 100%;
+    padding: rem(15) rem(40);
+    width: fit-content;
   }
   input {
     background-color: transparent;
@@ -58,6 +58,7 @@
   }
   @include desktop {
     padding: 0 rem(15);
+    width: 60%;
   }
 }
 .species-filter {

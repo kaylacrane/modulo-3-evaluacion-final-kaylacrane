@@ -1,6 +1,6 @@
 .details-page {
   animation: pulse 50s linear infinite;
-  background: url('../images/starry-sky.jpg');
+  background: url('../../images/starry-sky.jpg');
   background-size: cover;
   height: 100vh;
 }
@@ -120,7 +120,7 @@
     }
     &:focus,
     &:hover {
-      animation: pulse 1s;
+      animation: pulseOut 1s;
       box-shadow: 0 0 rem(80) rem(80) rgba($color-dark, 0);
     }
   }

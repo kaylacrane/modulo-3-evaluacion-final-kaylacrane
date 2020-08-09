@@ -3,10 +3,13 @@ import React, { Component } from 'react';
 class SearchByStatus extends Component {
   constructor(props) {
     super(props);
-    this.isAliveHandlerChild = this.isAliveHandlerChild.bind(this);
+    this.filterHandlerChild = this.filterHandlerChild.bind(this);
   }
-  isAliveHandlerChild(event) {
-    this.props.isAliveHandler(event);
+  filterHandlerChild(event) {
+    this.props.filterHandler({
+      key: 'isAliveOnly',
+      value: event.currentTarget.checked,
+    });
   }
   render() {
     console.log(this.props);
@@ -16,7 +19,7 @@ class SearchByStatus extends Component {
           type="checkbox"
           id="isAlive"
           checked={this.props.isAliveOnly}
-          onChange={this.isAliveHandlerChild}
+          onChange={this.filterHandlerChild}
         />
         Alive only
       </label>

@@ -3,10 +3,13 @@ import React, { Component } from 'react';
 class SearchBySpecies extends Component {
   constructor(props) {
     super(props);
-    this.speciesSearchHandlerChild = this.speciesSearchHandlerChild.bind(this);
+    this.filterHandlerChild = this.filterHandlerChild.bind(this);
   }
-  speciesSearchHandlerChild(event) {
-    this.props.speciesSearchHandler(event);
+  filterHandlerChild(event) {
+    this.props.filterHandler({
+      key: 'speciesFilter',
+      value: event.currentTarget.value,
+    });
   }
   render() {
     let speciesDropDowns;
@@ -22,7 +25,7 @@ class SearchBySpecies extends Component {
       <select
         name="species"
         id="species"
-        onChange={this.speciesSearchHandlerChild}
+        onChange={this.filterHandlerChild}
         className="species-filter"
         value={this.props.speciesFilter}
       >

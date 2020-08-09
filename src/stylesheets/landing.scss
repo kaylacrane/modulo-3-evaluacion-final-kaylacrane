@@ -28,7 +28,7 @@
   left: 50%;
   padding: rem(10);
   position: absolute;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(0.9);
   transition: all 1s;
   text-align: center;
   top: 50%;
@@ -36,6 +36,7 @@
   &:hover {
     background-color: $color-white;
     box-shadow: 0 0 rem(15) rem(15) $color-main;
+    transform: translate(-50%, -50%) scale(1.1);
   }
   @include tablet {
     font-size: rem(24);

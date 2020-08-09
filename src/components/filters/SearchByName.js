@@ -3,11 +3,14 @@ import React, { Component } from 'react';
 class SearchByName extends Component {
   constructor(props) {
     super(props);
-    this.nameSearchHandlerChild = this.nameSearchHandlerChild.bind(this);
+    this.filterHandlerChild = this.filterHandlerChild.bind(this);
     this.enterHandler = this.enterHandler.bind(this);
   }
-  nameSearchHandlerChild(event) {
-    this.props.nameSearchHandler(event);
+  filterHandlerChild(event) {
+    this.props.filterHandler({
+      key: 'searchText',
+      value: event.currentTarget.value,
+    });
   }
   enterHandler(event) {
     if (event.keyCode === 13) {
@@ -18,7 +21,7 @@ class SearchByName extends Component {
     return (
       <input
         type="text"
-        onChange={this.nameSearchHandlerChild}
+        onChange={this.filterHandlerChild}
         onKeyDown={this.enterHandler}
         value={this.props.searchValue}
         placeholder="Beth Smith"

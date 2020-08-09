@@ -18,14 +18,14 @@
   }
   &:hover {
     transform: scale(0.9);
+    .card-image {
+      border-radius: 0%;
+    }
   }
   .card-image {
     border-radius: 50%;
     transition: all 0.8s;
     width: 100%;
-    &:hover {
-      border-radius: 0%;
-    }
   }
   .character-species {
     font-size: rem(28);

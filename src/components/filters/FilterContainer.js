@@ -17,18 +17,18 @@ class FilterContainer extends Component {
         <h3 className="form-title">Search characters:</h3>
         <form className="form">
           <SearchByName
-            nameSearchHandler={this.props.nameSearchHandler}
+            filterHandler={this.props.filterHandler}
             searchValue={this.props.searchValue}
           />
           <div className="filter-block">
             <SearchBySpecies
-              speciesSearchHandler={this.props.speciesSearchHandler}
+              filterHandler={this.props.filterHandler}
               speciesList={this.props.speciesList}
               speciesFilter={this.props.speciesFilter}
             />
             <SearchByStatus
               isAliveOnly={this.props.isAliveOnly}
-              isAliveHandler={this.props.isAliveHandler}
+              filterHandler={this.props.filterHandler}
             />
           </div>
           <button

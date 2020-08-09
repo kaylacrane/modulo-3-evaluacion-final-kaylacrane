@@ -18,14 +18,12 @@ class Header extends Component {
             </Link>
           </h1>
           <FilterContainer
-            nameSearchHandler={this.props.nameSearchHandler}
+            filterHandler={this.props.filterHandler}
             searchValue={this.props.searchValue}
             resetHandler={this.props.resetHandler}
             speciesList={this.props.speciesList}
-            speciesSearchHandler={this.props.speciesSearchHandler}
             speciesFilter={this.props.speciesFilter}
             isAliveOnly={this.props.isAliveOnly}
-            isAliveHandler={this.props.isAliveHandler}
           />
         </header>
       </React.Fragment>
