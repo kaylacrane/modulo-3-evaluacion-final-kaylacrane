@@ -6,6 +6,7 @@
     width: fit-content;
     margin: auto;
     overflow: hidden;
+    border-radius: rem(15);
   }
 }
 .form-title {
@@ -16,7 +17,7 @@
     font-size: rem(22);
   }
   @include desktop {
-    font-size: rem(26);
+    font-size: rem(24);
   }
 }
 .form {
@@ -34,7 +35,7 @@
   }
   @include desktop {
     border-radius: rem(20);
-    padding: rem(20) rem(50) rem(30);
+    padding: rem(15) rem(50);
     margin: auto;
 
     width: 100%;
@@ -58,6 +59,7 @@
     padding: 0;
   }
   @include desktop {
+    padding: 0 rem(15);
   }
 }
 .species-filter {
@@ -71,7 +73,7 @@
   }
   @include desktop {
     font-size: rem(18);
-    margin: rem(10) 0 0 rem(20);
+    margin: 0;
   }
 }
 .status-filter {
@@ -83,7 +85,7 @@
   }
   @include desktop {
     font-size: rem(18);
-    margin: 0 rem(20);
+    margin: 0 0 0 rem(15);
   }
 }
 .reset-button {
