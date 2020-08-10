@@ -48,6 +48,10 @@
 .character-image {
   display: block;
   width: 100%;
+  @include tablet {
+    margin: auto;
+    width: 60%;
+  }
   @include desktop {
     margin: auto;
     width: 70%;
