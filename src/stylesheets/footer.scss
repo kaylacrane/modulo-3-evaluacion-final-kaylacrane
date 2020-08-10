@@ -20,7 +20,13 @@
   width: 100%;
 }
 .copy-block {
-  font-weight: bold;
+  a {
+    color: $color-black;
+    font-weight: bold;
+    &:before {
+      content: ' ';
+    }
+  }
   @include desktop {
     font-size: rem(22);
   }

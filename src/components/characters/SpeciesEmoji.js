@@ -13,8 +13,9 @@ class SpeciesEmoji extends Component {
       Poopybutthole: '💩',
       Vampire: '🧛',
       Disease: '🦠',
-      Unknown: '❓',
+      unknown: '❓',
       Mytholog: '🦄',
+      Cronenberg: '👹',
     };
     const { species } = this.props;
     return (
