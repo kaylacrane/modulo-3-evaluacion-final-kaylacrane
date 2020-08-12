@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SearchByName from './SearchByName';
 import SearchBySpecies from './SearchBySpecies';
 import SearchByStatus from './SearchByStatus';
+import SearchOrigin from './SearchOrigin';
 
 class FilterContainer extends Component {
   constructor(props) {
@@ -29,6 +30,10 @@ class FilterContainer extends Component {
             <SearchByStatus
               isAliveOnly={this.props.isAliveOnly}
               filterHandler={this.props.filterHandler}
+            />
+            <SearchOrigin
+              filterHandler={this.props.filterHandler}
+              isOrigin={this.props.isOrigin}
             />
           </div>
           <button

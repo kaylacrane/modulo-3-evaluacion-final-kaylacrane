@@ -21,6 +21,7 @@ class Main extends Component {
           speciesFilter={this.props.speciesFilter}
           isAliveOnly={this.props.isAliveOnly}
           filterHandler={this.props.filterHandler}
+          isOrigin={this.props.isOrigin}
         />
         <main className="main">
           <CharacterList

@@ -16,6 +16,7 @@ class App extends Component {
     this.getNextPage = this.getNextPage.bind(this);
     this.nextPageButton = this.nextPageButton.bind(this);
     this.filterHandler = this.filterHandler.bind(this);
+
     this.state = {
       characterList: [],
       searchText: '',
@@ -23,6 +24,7 @@ class App extends Component {
       speciesFilter: 'All',
       maxPages: 1,
       isAliveOnly: false,
+      isOrigin: false,
     };
   }
   // DATA FETCHERS
@@ -49,6 +51,7 @@ class App extends Component {
   }
   // FILTERS AND HANDLERS
   filterHandler(data) {
+    console.log(data);
     this.setState({ [data.key]: data.value });
   }
   resetHandler() {
@@ -63,6 +66,7 @@ class App extends Component {
       return '';
     }
   }
+
   // RENDER
   renderMain() {
     let speciesList = this.state.characterList.map((character) => {
@@ -81,6 +85,7 @@ class App extends Component {
         filterHandler={this.filterHandler}
         speciesFilter={this.state.speciesFilter}
         isAliveOnly={this.state.isAliveOnly}
+        isOrigin={this.state.isOrigin}
       />
     );
   }
@@ -100,6 +105,11 @@ class App extends Component {
       .filter((character) => {
         return this.state.isAliveOnly ? character.status === 'Alive' : true;
       })
+      .filter((character) => {
+        return this.state.isOrigin
+          ? character.origin.name === character.location.name
+          : true;
+      })
       .sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
   }
   renderCharacterDetails(event) {
@@ -117,6 +127,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state);
     return (
       <React.Fragment>
         <Switch>

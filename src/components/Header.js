@@ -5,6 +5,7 @@ import FilterContainer from './filters/FilterContainer';
 
 class Header extends Component {
   render() {
+    console.log(this.props.isOrigin);
     return (
       <React.Fragment>
         <header className="header">
@@ -24,6 +25,7 @@ class Header extends Component {
             speciesList={this.props.speciesList}
             speciesFilter={this.props.speciesFilter}
             isAliveOnly={this.props.isAliveOnly}
+            isOrigin={this.props.isOrigin}
           />
         </header>
       </React.Fragment>
