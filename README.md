@@ -21,6 +21,8 @@ The object is to create a webpage that lets the user display and filter characte
 - Use a grid system to display characters
 - CSS: Make it pretty 💄💋
 
+![screenshot of search page](https://github.com/kaylacrane/modulo-3-evaluacion-final-kaylacrane/blob/master/rick-and-morty-page.JPG)
+
 #### Project by => Kayla Crane 🤓
 
 > **github:** [@kaylacrane](https://github.com/kaylacrane)
