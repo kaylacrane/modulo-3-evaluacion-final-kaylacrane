@@ -1,4 +1,4 @@
-const ENDPOINT = 'http://loremricksum.com/api/?paragraphs=1&quotes=1';
+const ENDPOINT = "http://loremricksum.com/api/?paragraphs=1&quotes=1";
 
 const fetchQuotes = () => {
   return fetch(ENDPOINT)
