@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
-import fetchData from '../services/FetchData';
-import Main from './Main';
-import CharacterDetails from './characters/CharacterDetails';
-import Landing from '../components/Landing';
+import React, { Component } from "react";
+import { Route, Switch } from "react-router-dom";
+import fetchData from "../services/FetchData";
+import Main from "./Main";
+import CharacterDetails from "./characters/CharacterDetails";
+import Landing from "../components/Landing";
 
 class App extends Component {
   constructor(props) {
@@ -18,9 +18,9 @@ class App extends Component {
     this.filterHandler = this.filterHandler.bind(this);
     this.state = {
       characterList: [],
-      searchText: '',
+      searchText: "",
       page: 1,
-      speciesFilter: 'All',
+      speciesFilter: "All",
       maxPages: 1,
       isAliveOnly: false,
     };
@@ -28,7 +28,7 @@ class App extends Component {
   // DATA FETCHERS
   componentDidMount() {
     const pageNumber = this.state.page;
-    fetchData(pageNumber).then((data) => {
+    fetchData(`?page=${pageNumber}`).then((data) => {
       this.setState({
         characterList: data.results,
         maxPages: data.info.pages,
@@ -52,15 +52,15 @@ class App extends Component {
     this.setState({ [data.key]: data.value });
   }
   resetHandler() {
-    this.setState({ searchText: '', speciesFilter: 'All', isAliveOnly: false });
+    this.setState({ searchText: "", speciesFilter: "All", isAliveOnly: false });
   }
   nextPageButton() {
     const { maxPages, page } = this.state;
     const nextPage = page + 1;
     if (nextPage > maxPages) {
-      return 'disabled';
+      return "disabled";
     } else {
-      return '';
+      return "";
     }
   }
   // RENDER
@@ -93,12 +93,12 @@ class App extends Component {
           .includes(this.state.searchText.toLowerCase());
       })
       .filter((character) => {
-        return this.state.speciesFilter === 'All'
+        return this.state.speciesFilter === "All"
           ? true
           : character.species === this.state.speciesFilter;
       })
       .filter((character) => {
-        return this.state.isAliveOnly ? character.status === 'Alive' : true;
+        return this.state.isAliveOnly ? character.status === "Alive" : true;
       })
       .sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
   }

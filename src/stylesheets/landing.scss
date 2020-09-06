@@ -1,6 +1,6 @@
 .landing-main {
   align-items: center;
-  background: url('../images/rick-and-morty-starry-sky.jpg');
+  background: url("../images/rick-and-morty-starry-sky.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -17,42 +17,54 @@
   position: relative;
   width: fit-content;
 }
-.random-quote {
+.random-image-container {
   animation-duration: 2s;
   animation-name: floatIn;
   background-color: transparentize($color-white, 0.3);
-  border-radius: rem(15);
+  border-radius: 50%;
   color: $color-dark;
   cursor: pointer;
   font-size: rem(20);
   left: 50%;
-  padding: rem(10);
   position: absolute;
   transform: translate(-50%, -50%) scale(0.9);
   transition: all 1s;
   text-align: center;
   top: 50%;
-  width: 50%;
+  padding: 15px;
+  overflow: hidden;
+  height: fit-content;
+  width: fit-content;
+
   &:hover {
     background-color: $color-white;
     box-shadow: 0 0 rem(15) rem(15) $color-main;
     transform: translate(-50%, -50%) scale(1.1);
   }
   @include tablet {
-    font-size: rem(24);
   }
   @include desktop {
-    font-size: rem(22);
-    width: 40%;
+  }
+  img {
+    animation-name: wiggle;
+    animation-duration: infinite;
+    height: 200px;
+    border-radius: 50%;
+    @include tablet {
+      max-height: 400px;
+    }
+    @include desktop {
+    }
   }
 }
 .portal-gif {
   display: block;
   height: auto;
+  max-height: 50vh;
   margin: auto;
-  width: 80%;
+
   @include tablet {
-    width: 50%;
+    width: 60%;
   }
   @include desktop {
     width: 60%;
@@ -96,5 +108,19 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%) scale(1);
+  }
+}
+@keyframes wiggle {
+  0% {
+    transform: scale(2);
+  }
+  40% {
+    transform: scale(1.1);
+  }
+  65% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.95);
   }
 }

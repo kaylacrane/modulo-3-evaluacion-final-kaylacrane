@@ -1,5 +1,5 @@
-const fetchData = (pageNumber) => {
-  const ENDPOINT = `https://rickandmortyapi.com/api/character/?page=${pageNumber}`;
+const fetchData = (searchType) => {
+  const ENDPOINT = `https://rickandmortyapi.com/api/character/${searchType}`;
   return fetch(ENDPOINT)
     .then((response) => response.json())
     .then((data) => {
