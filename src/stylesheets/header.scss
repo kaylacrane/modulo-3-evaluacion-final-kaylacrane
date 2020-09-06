@@ -2,12 +2,14 @@
   background-color: $color-light;
   display: flex;
   flex-direction: column;
-  height: rem(225);
+  height: rem(200);
+  max-height: fit-content;
   padding: rem(10) 0;
   position: fixed;
   width: 100%;
   z-index: 10;
   @include tablet {
+    display: flex;
     height: rem(250);
   }
   @include desktop {
@@ -30,8 +32,8 @@
   max-width: rem(220);
   width: 50vw;
   @include tablet {
-    max-width: rem(430);
-    width: 50vw;
+    max-width: rem(400);
+    width: 40vw;
   }
   @include desktop {
     max-width: rem(400);

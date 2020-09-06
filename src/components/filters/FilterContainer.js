@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import SearchByName from './SearchByName';
-import SearchBySpecies from './SearchBySpecies';
-import SearchByStatus from './SearchByStatus';
+import React, { Component } from "react";
+import SearchByName from "./SearchByName";
+import SearchBySpecies from "./SearchBySpecies";
+import SearchByStatus from "./SearchByStatus";
 
 class FilterContainer extends Component {
   constructor(props) {
@@ -30,14 +30,14 @@ class FilterContainer extends Component {
               isAliveOnly={this.props.isAliveOnly}
               filterHandler={this.props.filterHandler}
             />
+            <button
+              type="reset"
+              className="reset-button"
+              onClick={this.resetHandlerChild}
+            >
+              Clear
+            </button>
           </div>
-          <button
-            type="reset"
-            className="reset-button"
-            onClick={this.resetHandlerChild}
-          >
-            Clear
-          </button>
         </form>
       </div>
     );

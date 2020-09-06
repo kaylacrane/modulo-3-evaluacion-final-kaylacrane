@@ -21,4 +21,9 @@ ul {
   @include desktop {
     grid-template-columns: repeat(5, 1fr);
   }
+  li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }

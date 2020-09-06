@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class SearchByStatus extends Component {
   constructor(props) {
@@ -7,7 +7,7 @@ class SearchByStatus extends Component {
   }
   filterHandlerChild(event) {
     this.props.filterHandler({
-      key: 'isAliveOnly',
+      key: "isAliveOnly",
       value: event.currentTarget.checked,
     });
   }
@@ -20,7 +20,7 @@ class SearchByStatus extends Component {
           checked={this.props.isAliveOnly}
           onChange={this.filterHandlerChild}
         />
-        Alive only
+        <span>Alive only</span>
       </label>
     );
   }
